@@ -5,10 +5,10 @@
 
 ## İhtiyacımız olanlar toolar : 
 - Nmap
-- Gobuster
+- Dirsearch
 - BurpSuite
 
-### İlk Adım : Ağ Keşfi
+### İlk Adım > Nmap
 Bir sızma testinde veya herhangi bir CTF yarışmasında olsun bir sızma testinin en önemli aşaması hedef hakkında toplayabildiğimiz kadar bilgi toplamaktır.Çünkü Bir sistemin nasıl çalıştığını anlamazsak o sistemi istismar etmemiz imkansız olacaktır.
 
 Bu yüzden ilk olarak "Nmap" ile cihaz üzerindeki portların ve servislerin keşfini yapacağız : 
@@ -62,5 +62,34 @@ Açıklama :
 Nmap -Pn -p 22,80,32768 -T5 -sV <hedef ip>
 ```
 
+![Foto](https://github.com/mel4mi/TR-Skynet-Writeup/blob/main/melami%40Melami_%20~%2030.08.2022%2023_37_51.png)
 
+Yeni parametremizi hızlıca açıklayalım : 
 
+  Özellik:
+  >-sV parametresi : Açık olan portlarda bulunan servisleri ve servis versiyonları bulur.
+  
+  Açıklama :
+  
+  >Versiyon tespiti CTF ve sızma testlerinde bulunan eski servisleri exploit-db sorgularatarak uygun zaafiyeti bulmamıza yarar
+  
+  şuan bulduğumuz sonuçlar bizimm işimize yaramıyor o zaman 2. aşamaya geçelim.
+  
+  
+  ## 2. Adım > Dirsearch
+  
+  Dirsearch ile hedef site üzerinde saklanmış alt klasörleri bulabiliriz.
+  
+  kullanımı gayet basittir.
+  
+  ```
+  dirsearch -u "hedef sitenin url'si"
+  ```
+![Foto](https://github.com/mel4mi/TR-Skynet-Writeup/blob/main/melami%40Melami_%20~_Main%2031.08.2022%2000_29_26.png)
+
+Açıklama : 
+>Http protokolünde status code'lar(durum kodları) vardır. Bunlar siteye ulaşım hakkında bilgiler verir 4xx(403 ulaşılamayan), 3xx(301 Yönlendirme), 2xx(200 ulaşılabilen)
+
+burda önemli olan şey robots.txt dosyasıdır. Bu dosyayı basitçe açıklamak gerekirse Robots.txt sitenizin sınır kapılarını kontrol etmeye benzer. Arama motoru robotlarının hangi sınır kapılarından girebileceğini hangilerinden giremeyeceğini belirtir.
+
+![Foto](https://github.com/mel4mi/TR-Skynet-Writeup/blob/main/Kali%20Linux%20%E2%80%94%20Mozilla%20Firefox%20(kali-linux)%2031.08.2022%2000_36_26.png)
