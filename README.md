@@ -137,5 +137,24 @@ xss Payloadımı yazıp test ediyorum :
 
 Çalıştı.
 
+![Foto](https://github.com/mel4mi/The-Marketplace-Writeup-TR/blob/main/Add%20new%20listing%20%E2%80%94%20Mozilla%20Firefox%20(kali-linux)%2031.08.2022%2001_15_32.png)
 
->Şimdi işin mantık kısmına gireceğiz.Bana kalırsa aslında hackerlık dediğimiz şey bir bakış açısı bir sistemin nasıl çalıştığını anlayıp bunu nasıl kendim için
+İlanımızın site içindeki görüntüsü böyle ilginç olan şey ürünümüzü sitenin adminlerine şikayet edebiliyor olmamız.
+
+![Foto](https://github.com/mel4mi/The-Marketplace-Writeup-TR/blob/main/Add%20new%20listing%20%E2%80%94%20Mozilla%20Firefox%20(kali-linux)%2031.08.2022%2001_15_37.png)
+
+Şikayet ediyoruz.
+
+
+![Foto](https://github.com/mel4mi/The-Marketplace-Writeup-TR/blob/main/Messages%20%E2%80%94%20Mozilla%20Firefox%20(kali-linux)%2031.08.2022%2001_16_44.png)
+
+Ve adminlerden cevap geldi. İlanımızda siteyi bozan başı şeyler olduğunu söylediler ve ilanımı kaldırdılar.
+
+>Şimdi işin mantık kısmına gireceğiz. Bana kalırsa aslında hackerlık dediğimiz şey bir bakış açısı. Bir sistemin nasıl çalıştığını anlayıp bunu nasıl kendisi için kullanıcağını akıl edebilmesidir. Şimdi burda nasıl düşünmemiz gerektiğini anlatıcağım.
+
+>Ben siteye zararlı bir kod yazabiliyorum ve bu kod çalışıyor. Zararlı kodumu incelemesi için adminlere atabiliyorum. O zaman zararlı kodum görüntülendiği anda adminin bilgisayarında da çalışmaz mı ??
+
+>Şimdi size çözümü anlatmadan önce çözümün mantığını anlatmak istiyorum. Artık hemen hemen her siteye girdiğimizde Çerez Politikası diye bir pop-up sürekli sağda solda köşede çıkıyor.peki bu çerezler nedir ? 
+>aslında çerez dediğimiz şey, bizim sitedeki benzersiz kimliğimiz ( bir nevi tc kimlik numaramız gibi).Sadece bize özel ve her siteye girdiğimizde site bizden bu çerezi alıyor, çözümlüyor ve bizi tanıyor. Bu yüzden siz internette bir laptop baktığınızda sürekli önünüze laptoplarla alakalı reklamlar geliyor. Peki bu çerezler sadece reklam için mi kullanılıyor ? Hayır. Mesela kullanıclara yetki vermek içinde kullanılıyor. adminin çerezi ile normal bir kullacının çerezinde fark olması lazım.
+
+>şimdi işimize yarayacak kısımda burası. Ben adminin kullanıcı adı ve şifresini bilmiyorum ve kıramadım. O yüzden "pass to cookie" diye adlandırılan yöntemi kullanarak adminin kullanıcı adını şifresini bilmeden adminin hesabını çalacağım. çok ilginç değil mi ? 
