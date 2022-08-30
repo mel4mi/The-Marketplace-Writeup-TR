@@ -108,8 +108,6 @@ burda önemli olan şey robots.txt dosyasıdır. Bu dosyayı basitçe açıklama
 
 Alışveriş sitemizde Kayıt olma seçeneğimiz var. Eğer siteye kayıt olabiliyorsak siteye ürün ilanı da ekleyebiliriz
 
-![Foto](https://github.com/mel4mi/The-Marketplace-Writeup-TR/blob/main/The%20Marketplace%20%E2%80%94%20Mozilla%20Firefox%20(kali-linux)%2031.08.2022%2000_44_56.png)
-
 
 Kayıt Oluyorum.
 
