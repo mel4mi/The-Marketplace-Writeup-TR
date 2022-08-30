@@ -85,11 +85,11 @@ Yeni parametremizi hızlıca açıklayalım :
   ```
   dirsearch -u "hedef sitenin url'si"
   ```
-![Foto](https://github.com/mel4mi/TR-Skynet-Writeup/blob/main/melami%40Melami_%20~_Main%2031.08.2022%2000_29_26.png)
+![Foto](https://github.com/mel4mi/The-Marketplace-Writeup-TR/blob/main/melami%40Melami_%20~_Main%2031.08.2022%2000_29_26.png)
 
 Açıklama : 
 >Http protokolünde status code'lar(durum kodları) vardır. Bunlar siteye ulaşım hakkında bilgiler verir 4xx(403 ulaşılamayan), 3xx(301 Yönlendirme), 2xx(200 ulaşılabilen)
 
 burda önemli olan şey robots.txt dosyasıdır. Bu dosyayı basitçe açıklamak gerekirse Robots.txt sitenizin sınır kapılarını kontrol etmeye benzer. Arama motoru robotlarının hangi sınır kapılarından girebileceğini hangilerinden giremeyeceğini belirtir.
 
-![Foto](https://github.com/mel4mi/TR-Skynet-Writeup/blob/main/Kali%20Linux%20%E2%80%94%20Mozilla%20Firefox%20(kali-linux)%2031.08.2022%2000_36_26.png)
+![Foto](https://github.com/mel4mi/The-Marketplace-Writeup-TR/blob/main/Kali%20Linux%20%E2%80%94%20Mozilla%20Firefox%20(kali-linux)%2031.08.2022%2000_36_26.png)
