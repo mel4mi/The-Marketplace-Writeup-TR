@@ -109,14 +109,6 @@ burda önemli olan şey robots.txt dosyasıdır. Bu dosyayı basitçe açıklama
 Alışveriş sitemizde Kayıt olma seçeneğimiz var. Eğer siteye kayıt olabiliyorsak siteye ürün ilanı da ekleyebiliriz
 
 
-Kayıt Oluyorum.
-
-![Foto](https://github.com/mel4mi/The-Marketplace-Writeup-TR/blob/main/Sign%20up%20%E2%80%94%20Mozilla%20Firefox%20(kali-linux)%2031.08.2022%2000_45_10.png)
-
-Giriş Yapıyorum.
-
-![Foto](https://github.com/mel4mi/The-Marketplace-Writeup-TR/blob/main/Log%20in%20%E2%80%94%20Mozilla%20Firefox%20(kali-linux)%2031.08.2022%2000_45_22.png)
-
 >Farkettiyseniz Yukarıdaki menüde yeni ürün ekleme seçeneğimiz geldi. Yeni bir ürün ekleme sayfasına göz atalım.
 
 ![Foto](https://github.com/mel4mi/The-Marketplace-Writeup-TR/blob/main/http___10.10.50.224_%20%E2%80%94%20Mozilla%20Firefox%20(kali-linux)%2031.08.2022%2001_01_37.png)
