@@ -106,9 +106,6 @@ burda önemli olan şey robots.txt dosyasıdır. Bu dosyayı basitçe açıklama
 >Siteye baktığımızda basit bir alışveriş sitesi gibi gözüküyor. Birde kaynak kodlarına bakalım [firefox'da (crtl+u) tuşlarına basarak kısa yoldan kaynak kodlarına erişebilirsiniz.]
 ![Foto](https://github.com/mel4mi/The-Marketplace-Writeup-TR/blob/main/The%20Marketplace%20%E2%80%94%20Mozilla%20Firefox%20(kali-linux)%2031.08.2022%2000_51_27.png)
 
-Alışveriş sitemizde Kayıt olma seçeneğimiz var. Eğer siteye kayıt olabiliyorsak siteye ürün ilanı da ekleyebiliriz
-
-
 >Farkettiyseniz Yukarıdaki menüde yeni ürün ekleme seçeneğimiz geldi. Yeni bir ürün ekleme sayfasına göz atalım.
 
 ![Foto](https://github.com/mel4mi/The-Marketplace-Writeup-TR/blob/main/http___10.10.50.224_%20%E2%80%94%20Mozilla%20Firefox%20(kali-linux)%2031.08.2022%2001_01_37.png)
@@ -127,7 +124,6 @@ xss Payloadımı yazıp test ediyorum :
 
 Çalıştı.
 
-![Foto](https://github.com/mel4mi/The-Marketplace-Writeup-TR/blob/main/Add%20new%20listing%20%E2%80%94%20Mozilla%20Firefox%20(kali-linux)%2031.08.2022%2001_15_32.png)
 
 İlanımızın site içindeki görüntüsü böyle ilginç olan şey ürünümüzü sitenin adminlerine şikayet edebiliyor olmamız.
 
