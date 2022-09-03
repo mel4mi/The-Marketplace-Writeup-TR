@@ -144,3 +144,4 @@ Ve adminlerden cevap geldi. İlanımızda siteyi bozan başı şeyler olduğunu 
 >aslında çerez dediğimiz şey, bizim sitedeki benzersiz kimliğimiz ( bir nevi tc kimlik numaramız gibi).Sadece bize özel ve her siteye girdiğimizde site bizden bu çerezi alıyor, çözümlüyor ve bizi tanıyor. Bu yüzden siz internette bir laptop baktığınızda sürekli önünüze laptoplarla alakalı reklamlar geliyor. Peki bu çerezler sadece reklam için mi kullanılıyor ? Hayır. Mesela kullanıclara yetki vermek içinde kullanılıyor. adminin çerezi ile normal bir kullacının çerezinde fark olması lazım.
 
 >şimdi işimize yarayacak kısımda burası. Ben adminin kullanıcı adı ve şifresini bilmiyorum ve kıramadım. O yüzden "pass to cookie" diye adlandırılan yöntemi kullanarak adminin kullanıcı adını şifresini bilmeden adminin hesabını çalacağım. çok ilginç değil mi ? 
+
