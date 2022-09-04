@@ -151,7 +151,7 @@ Ve adminlerden cevap geldi. İlanımızda siteyi bozan başı şeyler olduğunu 
 
 >Eğer buraya kadar anladıysanız bu çaldığımız çerez ile ne yapıcağımı anlatayım. Ben adminin kullanıcı adı ve şifresini bilmiyorum ve kıramadım. O yüzden "pass to cookie" diye adlandırılan yöntemi kullanarak adminin kullanıcı adını şifresini bilmeden sadece benim siteme yönlendirerek ona ait olan çerezleri çalıcam sonra bu çaldığım çerezi siteye ben adminmişim gibi tanıttığımda adminin hesabına erişmiş olacağım. Ve bütün bunları yaparken adminin kullanıcı adı ve şifresini kullanmamış olacağım. 
 
-Bu mantıktan yola çıkarak kendimize zaafiyetli bir php sayfası oluşturalım. ( yada linkten direk klonlayın [Cookie-stealer](https://github.com/tacticthreat/CookieHeist)
+Bu mantıktan yola çıkarak kendimize zaafiyetli bir php sayfası oluşturalım. ( yada linkten direk klonlayın [Cookie-stealer](https://github.com/tacticthreat/CookieHeist) )
 
 Zaafiyetli php sitesi kodu : 
 ```
