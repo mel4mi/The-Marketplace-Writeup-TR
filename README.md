@@ -184,9 +184,12 @@ Hazırlıklar tamam şimdi siteye zararlı kodumuzu yazalım :
 
 Cookie sahibi michael adında bir admin kullanıcısına ait. O zaman bu cookie ile giriş yapalım.
 
-![cookie_change](https://github.com/mel4mi/The-Marketplace-Writeup-TR/blob/main/Log%20in%20%E2%80%94%20Mozilla%20Firefox%20(kali-linux)%204.09.2022%2017_37_40.png)
+f12 tuşuna basın yada siteye sağ tıklayıp geliştirici seçeneklerini açın sonrasında storage kısmında cookie sekmesini açın.
 
 Value değerini çaldığımız cookie ile değiştirip sayfayı yenileyin ( f5 ).
+
+![cookie_change](https://github.com/mel4mi/The-Marketplace-Writeup-TR/blob/main/Log%20in%20%E2%80%94%20Mozilla%20Firefox%20(kali-linux)%204.09.2022%2017_37_40.png)
+
 
 Admin panelinde ilk flag'ımızı buluyoruz.
 
