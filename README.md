@@ -305,7 +305,7 @@ cd /root
 cat root.txt
 ```
 
-##Bitiriş
+## Bitiriş
 Bu benim ilk writeup denememdi,daha çok ayrıntı vermek isterdim ama yazı çok fazla uzadığı için derin konuları başka writeuplarda yazmayı planlıyorum.
 Umarım işinize yaramıştır.
 Eksik ve Hatalar için lütfen benle iletişme geçin.
