@@ -104,6 +104,7 @@ burda önemli olan şey robots.txt dosyasıdır. Bu dosyayı basitçe açıklama
 ![Foto](https://github.com/mel4mi/The-Marketplace-Writeup-TR/blob/main/The%20Marketplace%20%E2%80%94%20Mozilla%20Firefox%20(kali-linux)%2031.08.2022%2000_44_43.png)
 
 >Siteye baktığımızda basit bir alışveriş sitesi gibi gözüküyor. İlgimi çeken şey siteye giriş yapabiliyor olmam.
+
 ![Foto](https://github.com/mel4mi/The-Marketplace-Writeup-TR/blob/main/Log%20in%20%E2%80%94%20Mozilla%20Firefox%20(kali-linux)%2031.08.2022%2000_45_22.png)
 
 
