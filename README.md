@@ -1,7 +1,7 @@
 # TR-TheMarketPlace-Writeup
 
 
- Merhabalar bugün sizlerle beraber Tryhackme'de bulunan "The Marketplace" adlı odayı çözümleyeceğiz. Bu yazıyı ayrıntılı yazmak istiyorum çünkü bu yazıyı anladığınız taktirde çoğu ctf'lerde zorluk çekmeyeceksinizdir.
+ Merhabalar bugün sizlerle beraber Tryhackme'de bulunan "The Marketplace" adlı odayı çözümleyeceğiz. Bu yazıyı ayrıntılı yazmak istiyorum çünkü bu oda da kullanacağımız yolların uygulanabilmesi için teori kısmının iyi anlaşılması gerekiyor
 
 ## İhtiyacımız olanlar toolar : 
 - Nmap
