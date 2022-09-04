@@ -103,8 +103,9 @@ burda önemli olan şey robots.txt dosyasıdır. Bu dosyayı basitçe açıklama
 
 ![Foto](https://github.com/mel4mi/The-Marketplace-Writeup-TR/blob/main/The%20Marketplace%20%E2%80%94%20Mozilla%20Firefox%20(kali-linux)%2031.08.2022%2000_44_43.png)
 
->Siteye baktığımızda basit bir alışveriş sitesi gibi gözüküyor. Birde kaynak kodlarına bakalım [firefox'da (crtl+u) tuşlarına basarak kısa yoldan kaynak kodlarına erişebilirsiniz.]
-![Foto](https://github.com/mel4mi/The-Marketplace-Writeup-TR/blob/main/The%20Marketplace%20%E2%80%94%20Mozilla%20Firefox%20(kali-linux)%2031.08.2022%2000_51_27.png)
+>Siteye baktığımızda basit bir alışveriş sitesi gibi gözüküyor. İlgimi çeken şey siteye giriş yapabiliyor olmam.
+![Foto](https://github.com/mel4mi/The-Marketplace-Writeup-TR/blob/main/Log%20in%20%E2%80%94%20Mozilla%20Firefox%20(kali-linux)%2031.08.2022%2000_45_22.png)
+
 
 >Farkettiyseniz Yukarıdaki menüde yeni ürün ekleme seçeneğimiz geldi. Yeni bir ürün ekleme sayfasına göz atalım.
 
@@ -116,6 +117,9 @@ burda önemli olan şey robots.txt dosyasıdır. Bu dosyayı basitçe açıklama
 >velevki biz siteye normal bir ilan vermek yerine zararlı bir kod yazsak. yazdığımız zararlı kod da database de saklanacak. Bunun da sonucunda siteyi ziyaret eden herkesin bilgisayarında bizim ilanımız adı altında aslında bizim zararlı kodumuz çalışacak.Bu sayede hedef sistemde kod çalıştırabileceğiz. Bu zaafiyetin adı "Stored xss" diye geçiyor( daha fazla bilgi için : [XSS](https://portswigger.net/web-security/cross-site-scripting) )
 
 xss Payloadımı yazıp test ediyorum : 
+```
+  <script>alert(1)</script>
+  ```
 
 ![Foto](https://github.com/mel4mi/The-Marketplace-Writeup-TR/blob/main/Add%20new%20listing%20%E2%80%94%20Mozilla%20Firefox%20(kali-linux)%2031.08.2022%2001_15_22.png)
 
