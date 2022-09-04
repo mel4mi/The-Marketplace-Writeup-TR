@@ -6,7 +6,7 @@
 ## İhtiyacımız olanlar toolar : 
 - Nmap
 - Dirsearch
-- BurpSuite
+- Netcat
 
 ### İlk Adım > Nmap
 Bir sızma testinde veya herhangi bir CTF yarışmasında olsun bir sızma testinin en önemli aşaması hedef hakkında toplayabildiğimiz kadar bilgi toplamaktır.Çünkü Bir sistemin nasıl çalıştığını anlamazsak o sistemi istismar etmemiz imkansız olacaktır.
