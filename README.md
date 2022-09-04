@@ -244,7 +244,7 @@ sudo -l
 ![sudo](https://github.com/mel4mi/The-Marketplace-Writeup-TR/blob/main/sudo%20priv.png)
 
 
-Michael yetkileriyle çalışan bir sh dosyası var.Eğer bu dosyayı sömürebilirsek michael adına shell alabiliriz.
+Michael yetkileriyle çalışan bir .sh dosyası var.Eğer bu dosyayı sömürebilirsek michael adına shell alabiliriz.
 
 ![backup](https://github.com/mel4mi/The-Marketplace-Writeup-TR/blob/main/backup_ls.png)
 
